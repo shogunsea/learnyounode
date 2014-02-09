@@ -73,3 +73,58 @@
 //  » For a list of those who contributed to learnyounode, run:
 //    `learnyounode credits`.
 
+var http = require('http');
+
+http.get(process.argv[2], function(res) {
+  var message = '';
+
+  res.on('data', function(chunk) {
+    message += String(chunk);
+  });
+
+  res.on('end', function() {
+    console.log(message.length);
+    console.log(message);
+  });
+
+});
+
+// Verifying "HTTP COLLECT"...
+
+// ACTUAL:   "87"
+// EXPECTED: "87"
+
+// ACTUAL:   "It'll be bizzo when it'll be jug. She'll be right cockie heaps as cunning as a roadie. "
+// EXPECTED: "It'll be bizzo when it'll be jug. She'll be right cockie heaps as cunning as a roadie. "
+
+// ACTUAL:   ""
+// EXPECTED: ""
+
+// # PASS
+
+// Your solution to HTTP COLLECT passed!
+
+// Here's what the official solution is if you want to compare notes:
+
+// -----------------------------------------------------------------
+
+
+//       var http = require('http')
+//       var bl = require('bl')
+
+//       http.get(process.argv[2], function (response) {
+//         response.pipe(bl(function (err, data) {
+//           if (err)
+//             return console.error(data)
+//           data = data.toString()
+//           console.log(data.length)
+//           console.log(data)
+//         }))
+//       })
+
+
+// -----------------------------------------------------------------
+
+// You have 5 challenges left.
+// Type `learnyounode` to show the menu.
+
