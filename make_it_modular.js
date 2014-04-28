@@ -79,16 +79,33 @@
 //    `learnyounode credits`.
 
 
-var module = require('./module.js');
-var mymodule = module(process.argv[2],process.argv[3], function(err,data){
-  if(err){
-    return console.error(err);
-  }
+// var module = require('./module.js');
+// var mymodule = module(process.argv[2],process.argv[3], function(err,data){
+//   if(err){
+//     return console.error(err);
+//   }
 
-  data.forEach(function(item){
-    console.log(item);
-  })
-});
+//   data.forEach(function(item){
+//     console.log(item);
+//   })
+// });
+
+
+var dirfilter = require ("./module.js");
+var file_path = process.argv[2];
+var extension = process.argv[3];
+
+var callback = function(err, data) {
+  i = 0;
+  if (err) throw err;  
+  
+  while (i < data.length) {
+    console.log(data[i]);
+    i++;
+  };
+};
+
+dirfilter(file_path, extension, callback);
 
 
 

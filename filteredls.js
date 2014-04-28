@@ -45,13 +45,16 @@
 //    `learnyounode credits`.
 
 var fs = require('fs');
-var path = require('path');
+// var path = require('path');
 	// console.log('first param: '+process.argv[2]);
 	// console.log('second param: '+process.argv[3]);
-	var ext = '.'+process.argv[3];
+	// var ext = '.'+process.argv[3];
+	var ext = process.argv[3];
 	fs.readdir(process.argv[2], function(err,file){
 		for(var i = 0; i<file.length; i++){
-			if(path.extname(file[i])==ext){
+			// if(path.extname(file[i])==ext){
+			if(file[i].split('.')[1]==ext){
+				// console.log('The path extname output is: ' + path.extname(file[i]))
 				console.log(file[i]);
 			}	
 		}
