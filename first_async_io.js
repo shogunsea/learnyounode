@@ -47,9 +47,10 @@
 var fs = require('fs');
 
 var count=0;
-var file_content = fs.readFile(process.argv[2],'utf8', function(err, data){
+// var file_content = fs.readFile(process.argv[2],'utf8', function(err, data){
+var file_content = fs.readFile(process.argv[2], function(err, data){
 	if(err) throw err;
-	console.log(data.split('\n').length-1);
+	console.log(data.toString().split('\n').length-1);
 });
 
 

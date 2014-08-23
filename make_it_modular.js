@@ -91,11 +91,21 @@
 // });
 
 
-var dirfilter = require ("./module.js");
+var dirfilter = require ("./module");
 var file_path = process.argv[2];
 var extension = process.argv[3];
 
-var callback = function(err, data) {
+// var callback = function(err, data) {
+//   i = 0;
+//   if (err) throw err;  
+  
+//   while (i < data.length) {
+//     console.log(data[i]);
+//     i++;
+//   };
+// };
+
+dirfilter(file_path, extension, function(err, data) {
   i = 0;
   if (err) throw err;  
   
@@ -103,9 +113,7 @@ var callback = function(err, data) {
     console.log(data[i]);
     i++;
   };
-};
-
-dirfilter(file_path, extension, callback);
+});
 
 
 
